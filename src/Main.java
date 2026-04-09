@@ -11,12 +11,14 @@ class VehicleServiceSystem {
             // 1. Load Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // 2. Create Connection
+// 2. Create Connection
+            String password = System.getenv("DB_PASSWORD");
+
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vehicle_db",
+                    "jdbc:mysql://localhost:3306/vehicle_db?useSSL=false&allowPublicKeyRetrieval=true",
                     "root",
-                    "Spoorthi@13$"
-            );
+                    password
+            );2
 
             while (true) {
 
